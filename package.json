@@ -6,7 +6,11 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "biome lint .",
+    "format": "biome format --write .",
+    "typecheck": "next typegen && tsc --noEmit",
+    "precommit": "npm run format && npm run lint && npm run typecheck",
+    "prepare": "simple-git-hooks"
   },
   "dependencies": {
     "next": "16.2.1",
@@ -14,13 +18,16 @@
     "react-dom": "19.2.4"
   },
   "devDependencies": {
+    "@biomejs/biome": "^2.4.8",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "eslint": "^9",
-    "eslint-config-next": "16.2.1",
+    "simple-git-hooks": "^2.13.1",
     "tailwindcss": "^4",
     "typescript": "^5"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "npm run precommit"
   }
 }
