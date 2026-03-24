@@ -2,6 +2,7 @@
   "name": "stabble-stellar-demo",
   "version": "0.1.0",
   "private": true,
+  "packageManager": "pnpm@10.32.1",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -9,7 +10,7 @@
     "lint": "biome lint .",
     "format": "biome format --write .",
     "typecheck": "next typegen && tsc --noEmit",
-    "precommit": "npm run format && npm run lint && npm run typecheck",
+    "precommit": "lint-staged && pnpm run lint && pnpm run typecheck",
     "prepare": "simple-git-hooks"
   },
   "dependencies": {
@@ -23,11 +24,15 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "lint-staged": "^16.2.4",
     "simple-git-hooks": "^2.13.1",
     "tailwindcss": "^4",
     "typescript": "^5"
   },
   "simple-git-hooks": {
-    "pre-commit": "npm run precommit"
+    "pre-commit": "npx pnpm run precommit"
+  },
+  "lint-staged": {
+    "*": "biome format --write --no-errors-on-unmatched"
   }
 }
