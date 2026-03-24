@@ -6,7 +6,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "biome lint ."
+    "lint": "biome lint .",
+    "format": "biome format --write .",
+    "precommit": "npm run format && npm run lint && npm run build",
+    "prepare": "simple-git-hooks"
   },
   "dependencies": {
     "next": "16.2.1",
@@ -19,7 +22,11 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "simple-git-hooks": "^2.13.1",
     "tailwindcss": "^4",
     "typescript": "^5"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "npm run precommit"
   }
 }

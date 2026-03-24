@@ -3,6 +3,10 @@
   "files": {
     "includes": ["**", "!.next", "!out", "!build", "!next-env.d.ts"]
   },
+  "formatter": {
+    "indentStyle": "space",
+    "indentWidth": 2
+  },
   "css": {
     "parser": {
       "tailwindDirectives": true
