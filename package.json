@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "biome lint .",
     "format": "biome format --write .",
-    "precommit": "npm run format && npm run lint && npm run build",
+    "typecheck": "next typegen && tsc --noEmit",
+    "precommit": "npm run format && npm run lint && npm run typecheck",
     "prepare": "simple-git-hooks"
   },
   "dependencies": {
