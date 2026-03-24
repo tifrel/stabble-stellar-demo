@@ -2,6 +2,7 @@
   "name": "stabble-stellar-demo",
   "version": "0.1.0",
   "private": true,
+  "packageManager": "pnpm@10.32.1",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -9,7 +10,7 @@
     "lint": "biome lint .",
     "format": "biome format --write .",
     "typecheck": "next typegen && tsc --noEmit",
-    "precommit": "npm run format && npm run lint && npm run typecheck",
+    "precommit": "pnpm run format && pnpm run lint && pnpm run typecheck",
     "prepare": "simple-git-hooks"
   },
   "dependencies": {
@@ -28,6 +29,6 @@
     "typescript": "^5"
   },
   "simple-git-hooks": {
-    "pre-commit": "npm run precommit"
+    "pre-commit": "npx pnpm run precommit"
   }
 }
