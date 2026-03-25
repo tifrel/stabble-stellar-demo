@@ -19,3 +19,7 @@ After editing any CSS, Tailwind config, or theme logic:
 ## Completion criteria
 - Do NOT commit if any checks fail.
 - Fix errors instead of bypassing them.
+
+## Security
+- Always validate user inputs
+- Never hardcode any secrets
